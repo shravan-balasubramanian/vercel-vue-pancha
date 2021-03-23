@@ -34,8 +34,8 @@ export default {
       if (this.search.length > 0) {
         try {
           this.movieResults = (await (
-          await fetch(`/api?url=${process.env.VUE_APP_API_URL}&s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`))
-            .json()).Search.splice(1, 5);
+          await fetch(`/api?url=${process.env.VUE_APP_API_URL}&s=${this.search}&apikey=68dad405`))
+            .json()).result.Search.splice(1, 5);
         } catch (ex) {
           alert('error occured');
           // eslint-disable-next-line no-console

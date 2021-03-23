@@ -1,12 +1,11 @@
 const axios = require('axios');
 
 const exportFunction = async (req, res) => {
-  console.log(req.query);
+  // eslint-disable-next-line no-console
+  console.log('User is searching for the movie: ' + s);
   const { url, apikey, s } = req.query;
+  const response = await axios.get(`${url}?s=${s}&apikey=${apikey}`);
 
-  console.log(url, s, apikey);
-
-  const response = axios.get(`${url}?s=${s}&apikey=${apikey}`);
   res.json({
       result: response.data,
   })
