@@ -32,7 +32,7 @@ export default {
   methods: {
     async getSearchMovies() {
       // eslint-disable-next-line no-console
-      console.log(process.env);
+      console.log(process.env.VUE_APP_API_URL);
       // eslint-disable-next-line no-debugger
       debugger;
       if (this.search.length > 0) {
