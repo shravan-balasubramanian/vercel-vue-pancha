@@ -32,7 +32,7 @@ export default {
   methods: {
     async getSearchMovies() {
       if (this.search.length > 0) {
-        const url = `${process.env.API_URL}?s=${this.search}&apikey=${process.env.API_KEY}`;
+        const url = `${process.env.VUE_APP_API_URL}?s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`;
         this.movieResults = (await (await fetch(url)).json()).Search.splice(
           1,
           5
