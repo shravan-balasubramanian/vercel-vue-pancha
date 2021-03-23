@@ -32,7 +32,7 @@ export default {
   methods: {
     async getSearchMovies() {
       if (this.search.length > 0) {
-        const url = `http://omdbapi.com?s=${this.search}&apikey=68dad405`;
+        const url = `${process.env.API_URL}?s=${this.search}&apikey=${process.env.API_KEY}`;
         this.movieResults = (await (await fetch(url)).json()).Search.splice(
           1,
           5
