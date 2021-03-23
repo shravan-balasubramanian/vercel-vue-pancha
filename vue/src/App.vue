@@ -31,17 +31,16 @@ export default {
   },
   methods: {
     async getSearchMovies() {
-      // eslint-disable-next-line no-console
-      console.log(process.env.VUE_APP_API_URL);
-      // eslint-disable-next-line no-debugger
-      debugger;
       if (this.search.length > 0) {
-        const url = `${process.env.VUE_APP_API_URL}?s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`;
-        // eslint-disable-next-line no-debugger
-        debugger;
-        this.movieResults = (await (
-          await fetch(`/api?url='${url}'`))
+        try {
+          this.movieResults = (await (
+          await fetch(`/api?url=${process.env.VUE_APP_API_URL}&s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`))
             .json()).Search.splice(1, 5);
+        } catch (ex) {
+          alert('error occured');
+          // eslint-disable-next-line no-console
+          console.error(`error with api ${JSON.stringify(ex)}`);
+        }
       }
     }
   }
