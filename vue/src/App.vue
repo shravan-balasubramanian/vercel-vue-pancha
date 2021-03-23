@@ -31,12 +31,17 @@ export default {
   },
   methods: {
     async getSearchMovies() {
+      // eslint-disable-next-line no-console
+      console.log(process.env);
+      // eslint-disable-next-line no-debugger
+      debugger;
       if (this.search.length > 0) {
-        const url = `http://omdbapi.com?s=${this.search}&apikey=68dad405`;
-        this.movieResults = (await (await fetch(url)).json()).Search.splice(
-          1,
-          5
-        );
+        const url = `${process.env.api_url}?s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`;
+        // eslint-disable-next-line no-debugger
+        debugger;
+        this.movieResults = (await (
+          await fetch(`/api?url='${url}'`)
+            .json()).Search.splice(1, 5));
       }
     }
   }
