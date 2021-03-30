@@ -3,7 +3,7 @@
     <div class="header">
       <form @submit.prevent="getSearchMovies">
         <input type="text" v-model="search" />
-        <button type="submit">Go</button>
+        <button type="submit">Click</button>
       </form>
     </div>
     <div class="results">
