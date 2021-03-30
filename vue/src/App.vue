@@ -3,7 +3,7 @@
     <div class="header">
       <form @submit.prevent="getSearchMovies">
         <input type="text" v-model="search" />
-        <button type="submit">Go</button>
+        <button type="submit">Click</button>
       </form>
     </div>
     <div class="results">
@@ -34,7 +34,7 @@ export default {
       if (this.search.length > 0) {
         try {
           this.movieResults = (await (
-          await fetch(`/api?url=${process.env.VUE_APP_API_URL}&s=${this.search}&apikey=${process.env.VUE_APP_API_KEY}`))
+          await fetch(`/api?s=${this.search}`))
             .json()).result.Search.splice(1, 5);
         } catch (ex) {
           alert('error occured');
